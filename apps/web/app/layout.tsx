@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 export const metadata = {
   title: 'AutoEnroll.ie',
-  description: 'GDPR-safe auto-enrolment validator and eligibility checker'
+  description: 'GDPR-safe auto-enrolment validator and eligibility checker',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

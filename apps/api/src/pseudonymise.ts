@@ -19,6 +19,6 @@ export function toPayrollRecord(input: PayrollRecordInput): PayrollRecord {
     return age;
   })();
 
-  const hashedId = hashValue(parsed.employeeId || parsed.ppsNumber);
+  const hashedId = hashValue(parsed.employeeId || parsed.ppsNumber || '');
   return { ...parsed, age: derivedAge, hashedId };
 }
