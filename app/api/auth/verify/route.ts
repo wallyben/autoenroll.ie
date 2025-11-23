@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
       success: true,
       message: 'Authentication successful',
       email: decoded.email,
-      sessionToken,
+      // sessionToken removed from body for security - available via HTTP-only cookie
     });
 
     // Set session cookie

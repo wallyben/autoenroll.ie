@@ -32,9 +32,11 @@ export async function POST(request: NextRequest) {
     );
 
     // Create magic link URL
+    const protocol = request.headers.get('x-forwarded-proto');
+    const validProtocol = protocol === 'https' ? 'https' : 'http';
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 
                     (request.headers.get('host') ? 
-                      `${request.headers.get('x-forwarded-proto') || 'http'}://${request.headers.get('host')}` : 
+                      `${validProtocol}://${request.headers.get('host')}` : 
                       'http://localhost:3000');
     
     const magicLink = `${baseUrl}/api/auth/verify?token=${token}`;
@@ -43,22 +45,21 @@ export async function POST(request: NextRequest) {
     if (email === 'test@example.com') {
       return NextResponse.json({
         message: 'Test mode: Magic link generated successfully',
-        magicLink,
-        token,
+        magicLink, // Only for test account
+        token, // Only for test account
         note: 'In production, this would be sent via email. Click the link or use the token to authenticate.',
       });
     }
 
     // In a real application, you would send an email here
-    // For now, we'll just return the magic link in the response
     console.log(`Magic link for ${email}: ${magicLink}`);
 
-    // In production, uncomment this and set up email service
+    // In production, remove the magicLink from response and send via email
     // await sendEmail(email, magicLink);
 
     return NextResponse.json({
-      message: 'Magic link sent successfully! (Check console in dev mode)',
-      magicLink, // Remove this in production
+      message: 'Magic link sent successfully! Check your email.',
+      // magicLink removed for security - only sent via email in production
     });
   } catch (error) {
     console.error('Error generating magic link:', error);
