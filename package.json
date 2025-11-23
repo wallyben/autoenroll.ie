@@ -1,1 +1,33 @@
-{"name":"autoenroll.ie","version":"1.0.0","description":"Auto enrollment project for IE.","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"author":"wallyben","license":"ISC"}
+{
+  "name": "autoenroll.ie",
+  "version": "1.0.0",
+  "description": "Auto enrollment project for IE.",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "dependencies": {
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.7",
+    "bcrypt": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/nodemailer": "^6.4.14",
+    "@types/bcrypt": "^5.0.2",
+    "typescript": "^5.3.3",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4"
+  },
+  "author": "wallyben",
+  "license": "ISC"
+}
