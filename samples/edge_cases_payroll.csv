@@ -1,0 +1,11 @@
+employee_id,first_name,last_name,email,pps_number,date_of_birth,annual_salary,employment_start_date,prsi_class
+EMP_YOUNG,Tom,Young,tom.young@test.ie,1111111A,2007-01-01,25000,2024-01-01,A1
+EMP_OLD,Mary,Senior,mary.senior@test.ie,2222222B,1950-06-15,40000,2020-01-01,A1
+EMP_LOWPAY,Pat,LowWage,pat.low@test.ie,3333333C,1990-03-20,12000,2023-01-01,A1
+EMP_HIGHPAY,Rich,Executive,rich.exec@test.ie,4444444D,1985-08-10,150000,2022-01-01,A1
+EMP_RECENT,New,Starter,new.start@test.ie,5555555E,1992-11-25,35000,2024-11-01,A1
+EMP_PRSI_J,Self,Employed,self.emp@test.ie,6666666F,1988-04-12,30000,2023-06-01,J
+EMP_PRSI_S,Part,Timer,part.time@test.ie,7777777G,1995-09-30,18000,2023-03-15,A8
+EMP_EXACT_AGE,Exact,Age,exact.age@test.ie,8888888H,2001-01-01,32000,2023-01-01,A1
+EMP_THRESHOLD,On,Threshold,on.threshold@test.ie,9999999I,1990-07-15,20000,2023-01-01,A1
+EMP_CONTRACTOR,Free,Lancer,freelance@test.ie,1010101J,1987-12-05,45000,2023-01-01,A0

@@ -1,0 +1,3 @@
+employee_id,first_name,last_name,email,pps_number,date_of_birth,annual_salary,employment_start_date,prsi_class
+INVALID,Missing,Data,,BADPPS,not-a-date,not-a-number,2023-01-15,A1
+EMP999,Test,User,test@test.com,9999999D,2010-01-01,5000,2023-01-01,INVALID

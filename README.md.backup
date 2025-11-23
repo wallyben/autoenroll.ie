@@ -1,0 +1,109 @@
+# AutoEnroll.ie
+
+Production-ready SaaS platform for Irish pension auto-enrolment compliance.
+
+## Features
+
+- **CSV/XLSX Upload & Parsing**: Handle employee payroll data from any format
+- **Intelligent Validation**: Comprehensive data quality checks and normalization
+- **Auto-Enrolment Engine**: Full implementation of Irish pension auto-enrolment rules
+- **Contribution Calculator**: Accurate calculation of employer/employee contributions
+- **Risk Scoring**: Identify compliance risks and data quality issues
+- **PDF Reports**: Professional compliance reports for employers
+- **GDPR Compliant**: Zero-retention architecture with pseudonymisation
+- **Stripe Billing**: Subscription management and payment processing
+- **Modern Stack**: Next.js 14, TypeScript, Node.js, Tailwind CSS
+
+## Architecture
+
+This is a monorepo using pnpm workspaces and Turborepo:
+
+- `packages/backend`: Node.js/Express API server
+- `packages/frontend`: Next.js 14 application
+- `packages/common`: Shared types, validation logic, and utilities
+
+## Getting Started
+
+**📖 See [GETTING_STARTED.md](GETTING_STARTED.md) for detailed setup instructions.**
+
+### Quick Start (3 commands)
+
+```bash
+# 1. Install dependencies
+pnpm install
+
+# 2. Setup database
+createdb autoenroll
+psql -U postgres -d autoenroll -f base-migration.sql
+
+# 3. Start all services
+pnpm dev
+```
+
+**Services will be available at:**
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:3001
+- Health Check: http://localhost:3001/health
+
+**Test with sample data:**
+- Upload `samples/sample_payroll.csv` to test the system
+- See `GETTING_STARTED.md` for complete testing instructions
+
+### System Requirements (Verified Working)
+
+✅ Node.js v22.21.1 (minimum v18+)  
+✅ pnpm 8.12.0 (minimum v8+)  
+✅ PostgreSQL 16.11 (minimum v14+)
+
+### Testing
+
+```bash
+# Run all tests
+pnpm test
+
+# Run backend tests
+pnpm test:backend
+
+# Run frontend tests
+pnpm test:frontend
+
+# Run tests with coverage
+pnpm test:coverage
+```
+
+## Documentation
+
+- [Architecture Overview](docs/architecture.md)
+- [GDPR Compliance Model](docs/gdpr-model.md)
+- [Rules Engine](docs/rules-engine.md)
+- [Billing System](docs/billing.md)
+- [Testing Strategy](docs/testing-strategy.md)
+
+## Legal
+
+- [Privacy Policy](legal/privacy-policy.md)
+- [Terms of Service](legal/terms-of-service.md)
+- [Data Processing Agreement](legal/dpa.md)
+- [Security Overview](legal/security-overview.md)
+
+## Deployment
+
+The platform is configured for deployment on modern hosting platforms:
+
+```bash
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
+```
+
+See [Infrastructure Documentation](docs/infrastructure.md) for detailed deployment instructions.
+
+## License
+
+Proprietary - All Rights Reserved
+
+## Contact
+
+For support or inquiries: support@autoenroll.ie

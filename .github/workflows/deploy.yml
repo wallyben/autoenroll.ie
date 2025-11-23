@@ -1,0 +1,76 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy-backend:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build common package
+        run: pnpm --filter @autoenroll/common build
+
+      - name: Build backend
+        run: pnpm --filter @autoenroll/backend build
+
+      - name: Deploy to production
+        run: echo "Deploy backend to your hosting platform"
+        # Add your deployment commands here
+        # Examples:
+        # - Railway: railway up
+        # - Heroku: git push heroku main
+        # - Custom: scp, rsync, etc.
+
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build common package
+        run: pnpm --filter @autoenroll/common build
+
+      - name: Build frontend
+        run: pnpm --filter @autoenroll/frontend build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.API_URL }}
+
+      - name: Deploy to Vercel
+        run: echo "Deploy frontend to Vercel"
+        # Add Vercel deployment or your preferred platform
+        # Example: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}

@@ -1,1 +1,28 @@
-{"name":"autoenroll.ie","version":"1.0.0","description":"Auto enrollment project for IE.","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"author":"wallyben","license":"ISC"}
+{
+  "name": "autoenroll-ie",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Irish pension auto-enrolment compliance platform",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:backend": "pnpm --filter @autoenroll/backend test",
+    "test:frontend": "pnpm --filter @autoenroll/frontend test",
+    "test:coverage": "turbo run test:coverage",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
+  },
+  "devDependencies": {
+    "turbo": "^1.11.0",
+    "prettier": "^3.1.0",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.12.0"
+}

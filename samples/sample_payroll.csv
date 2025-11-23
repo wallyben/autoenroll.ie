@@ -1,0 +1,11 @@
+employee_id,first_name,last_name,email,pps_number,date_of_birth,annual_salary,employment_start_date,prsi_class
+EMP001,John,Doe,john.doe@example.com,1234567T,1985-03-15,35000,2023-01-15,A1
+EMP002,Jane,Smith,jane.smith@example.com,9876543U,1990-07-22,42000,2023-02-01,A1
+EMP003,Michael,Johnson,michael.j@example.com,5678901V,1988-11-08,38000,2023-01-30,A1
+EMP004,Sarah,Williams,sarah.w@example.com,2345678W,1992-05-20,45000,2022-11-10,A1
+EMP005,David,Brown,david.b@example.com,8765432X,1987-09-12,52000,2022-08-15,A1
+EMP006,Emma,Jones,emma.j@example.com,3456789Y,1995-02-28,33000,2023-03-01,A1
+EMP007,James,Taylor,james.t@example.com,7654321Z,1983-12-05,48000,2022-06-20,A1
+EMP008,Olivia,Anderson,olivia.a@example.com,4567890A,1991-08-18,41000,2023-01-05,A1
+EMP009,William,Thomas,william.t@example.com,6543210B,1989-04-30,39000,2022-12-01,A1
+EMP010,Sophia,Martin,sophia.m@example.com,1111111C,1994-11-14,36000,2023-02-15,A1
