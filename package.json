@@ -1,1 +1,30 @@
-{"name":"autoenroll.ie","version":"1.0.0","description":"Auto enrollment project for IE.","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"author":"wallyben","license":"ISC"}
+{
+  "name": "autoenroll.ie",
+  "version": "1.0.0",
+  "description": "Auto enrollment project for IE.",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/api",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "author": "wallyben",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "typescript": "^5.5.4"
+  }
+}
