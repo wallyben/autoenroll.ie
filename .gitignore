@@ -12,6 +12,20 @@ yarn-error.log*
 
 # dotenv environment variable file
 .env
+.env.local
 
 # Build directory
 dist/
+
+# Next.js
+.next/
+out/
+build/
+
+# Testing
+coverage/
+
+# Misc
+.turbo
+*.tsbuildinfo
+next-env.d.ts
