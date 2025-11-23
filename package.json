@@ -1,1 +1,25 @@
-{"name":"autoenroll.ie","version":"1.0.0","description":"Auto enrollment project for IE.","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"author":"wallyben","license":"ISC"}
+{
+  "name": "autoenroll-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "build": "npm run build -w apps/api && npm run build -w apps/web",
+    "dev": "npm run dev -w apps/api",
+    "lint": "npm run lint -ws",
+    "format": "prettier --write .",
+    "test": "npm run test -ws"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "8.3.0",
+    "@typescript-eslint/parser": "8.3.0",
+    "@types/node": "22.5.2",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "prettier": "3.3.3",
+    "typescript": "5.5.4"
+  }
+}
