@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from './config';
+import { MAGIC_LINK_EXPIRATION_MINUTES } from '@autoenroll/common';
 
 interface MagicLinkRequest {
   email: string;
@@ -11,7 +12,7 @@ const codeStore = new Map<string, { code: string; expiresAt: number; organisatio
 
 export function requestMagicLink({ email, organisationId = 'demo-org' }: MagicLinkRequest) {
   const code = crypto.randomInt(100000, 999999).toString();
-  const expiresAt = Date.now() + 10 * 60 * 1000;
+  const expiresAt = Date.now() + MAGIC_LINK_EXPIRATION_MINUTES * 60 * 1000;
   codeStore.set(email, { code, expiresAt, organisationId });
   return { code, expiresAt };
 }

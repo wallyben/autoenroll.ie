@@ -8,12 +8,14 @@ import {
   EligibilityOutcome,
   PayrollRecord,
   RuleResult,
-  ValidationSummary
+  ValidationSummary,
+  MIN_EMPLOYMENT_AGE,
+  MAX_EMPLOYMENT_AGE,
+  PAY_PERIOD_STALENESS_MONTHS
 } from '@autoenroll/common';
 import { payPeriodsPerYear, parseDate } from './parser';
 
 const ALLOWED_PRSI_CLASSES = ['A', 'B', 'C', 'D', 'E', 'H', 'J', 'K', 'M', 'S', 'P'];
-const PAY_PERIOD_STALENESS_MONTHS = 18;
 
 export function validateRecord(record: PayrollRecord): RuleResult[] {
   const issues: RuleResult[] = [];
@@ -37,7 +39,7 @@ export function validateRecord(record: PayrollRecord): RuleResult[] {
       severity: 'high'
     });
   }
-  if (record.age < 16 || record.age > 75) {
+  if (record.age < MIN_EMPLOYMENT_AGE || record.age > MAX_EMPLOYMENT_AGE) {
     issues.push({
       code: 'implausible_age',
       message: 'Age appears outside normal employment bounds',

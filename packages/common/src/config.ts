@@ -4,6 +4,12 @@ export const AE_ELIGIBLE_MAX_AGE = 60;
 export const AE_LOWER_THRESHOLD_ANNUAL = 20000;
 export const AE_UPPER_THRESHOLD_ANNUAL = 80000;
 
+// Validation bounds
+export const MIN_EMPLOYMENT_AGE = 16;
+export const MAX_EMPLOYMENT_AGE = 75;
+export const PAY_PERIOD_STALENESS_MONTHS = 18;
+export const MAGIC_LINK_EXPIRATION_MINUTES = 10;
+
 // Contribution escalation schedule
 export const CONTRIBUTION_ESCALATION = [
   { year: 1, employee: 0.015, employer: 0.015, state: 0.005 },

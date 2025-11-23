@@ -3,7 +3,10 @@ import dayjs from 'dayjs';
 import { payrollRecordSchema, PayrollRecord, PayrollRecordInput } from '@autoenroll/common';
 
 function hashValue(value: string) {
-  const salt = process.env.HASH_SALT || 'autoenroll';
+  const salt = process.env.HASH_SALT;
+  if (!salt) {
+    throw new Error('HASH_SALT environment variable must be set for security');
+  }
   return crypto.createHash('sha256').update(`${salt}:${value}`).digest('hex');
 }
 
