@@ -8,25 +8,52 @@ AutoEnroll.ie is a GDPR-first SaaS for validating Irish payroll files and assess
 - `packages/common`: Shared domain types, configuration, and rules constants.
 
 ## Getting Started
+
+### Quick Start (Recommended)
 ```bash
+# Clone and navigate to the repository
+cd /path/to/autoenroll.ie
+
+# Install dependencies
 npm install
-npm run dev # starts API (port 4000)
-# In separate shell
-cd apps/web && npm run dev # starts web (port 3000)
+
+# Start both servers with one command
+./start.sh
 ```
-Set `NEXT_PUBLIC_API_URL` to your API origin when running the frontend.
+
+### Manual Start
+```bash
+# Terminal 1: Start API (port 4000)
+npm run dev
+
+# Terminal 2: Start Web (port 3000)
+cd apps/web
+npm run dev
+```
+
+### Accessing the Application
+
+**Local Development:**
+- Web: http://localhost:3000
+- API: http://localhost:4000
+
+**GitHub Codespaces / Cloud Environments:**
+- Use the **Ports** panel in VS Code
+- Click the Open in Browser icon (🌐) next to port 3000
+- The app automatically proxies API requests through Next.js (no CORS issues)
 
 ### Developer Onboarding
 - Use Node 20+.
 - Copy `.env.example` to `.env` and adjust secrets.
 - Run `npm install` at repo root; workspaces handle dependencies.
-- Start API first, then frontend pointing to API base.
+- Run `./start.sh` or start servers manually.
 
 ## Environment Variables
 - `JWT_SECRET`: Secret for signing access tokens.
 - `STRIPE_SECRET`: Stripe API key (optional; mock URLs returned if absent).
-- `HASH_SALT`: Salt for hashing identifiers.
-- `CORS_ORIGIN`: Allowed origins (default `*`).
+- `HASH_SALT`: Salt for hashing identifiers (required for security).
+- `CORS_ORIGIN`: Allowed origins (default `*` for development).
+- `NEXT_PUBLIC_API_URL`: API endpoint (default `/api` for Next.js proxy).
 
 ## Key Endpoints
 - `POST /auth/request` → request magic code (returned in dev)

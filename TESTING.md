@@ -2,35 +2,59 @@
 
 ## System Overview
 AutoEnroll.ie is now fully set up and accessible! The system consists of:
-- **API Server**: Running on http://localhost:4000
-- **Web Interface**: Running on http://localhost:3000
+- **API Server**: Running on port 4000
+- **Web Interface**: Running on port 3000
 
 ## Quick Start
 
-### 1. Start the API Server
+### Option 1: Use the Startup Script (Recommended)
+```bash
+cd /home/runner/work/autoenroll.ie/autoenroll.ie
+./start.sh
+```
+This will start both servers automatically.
+
+### Option 2: Start Servers Manually
+
+#### 1. Start the API Server
 ```bash
 cd /home/runner/work/autoenroll.ie/autoenroll.ie
 npm run dev
 ```
 The API will start on port 4000.
 
-### 2. Start the Web Frontend (in a separate terminal)
+#### 2. Start the Web Frontend (in a separate terminal)
 ```bash
 cd /home/runner/work/autoenroll.ie/autoenroll.ie/apps/web
-NEXT_PUBLIC_API_URL=http://localhost:4000 npm run dev
+npm run dev
 ```
 The web interface will start on port 3000.
+
+## Accessing the Application
+
+### Local Development
+- **Web Interface**: http://localhost:3000
+- **API Server**: http://localhost:4000
+
+### GitHub Codespaces / Cloud Environments
+When running in Codespaces or similar environments:
+1. Look for the **Ports** panel in VS Code
+2. Find ports 3000 (Web) and 4000 (API)
+3. Click the **Open in Browser** icon (🌐) next to port 3000
+4. The application will automatically connect to the API via Next.js proxy
+
+**Note**: The app is configured to work seamlessly in any environment. The API requests go through `/api/*` which Next.js automatically proxies to the backend, avoiding CORS issues.
 
 ## Testing the System
 
 ### Web Interface Testing
 
 1. **Access the Landing Page**
-   - Navigate to http://localhost:3000
+   - Navigate to your web interface URL (localhost:3000 or Codespaces URL)
    - You'll see the marketing page with features and pricing tiers
 
 2. **Access the Dashboard**
-   - Click "Launch app" or navigate to http://localhost:3000/dashboard
+   - Click "Launch app" or navigate to `/dashboard`
    
 3. **Login Flow**
    - Enter your email address (e.g., test@example.com)

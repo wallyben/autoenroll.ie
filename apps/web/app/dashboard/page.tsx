@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import useSWR from 'swr';
 
-const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+// Use relative /api path which will be proxied by Next.js to the backend
+const apiBase = process.env.NEXT_PUBLIC_API_URL || '/api';
 const fetcher = (url: string, token: string) =>
   fetch(url, { headers: { Authorization: `Bearer ${token}` } }).then((r) => r.json());
 
